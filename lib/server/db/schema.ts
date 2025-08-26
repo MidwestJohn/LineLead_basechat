@@ -164,6 +164,7 @@ export const messages = pgTable(
     content: text("content"),
     role: messageRolesEnum("role").notNull(),
     sources: json("sources").notNull(),
+    media: json("media").default([]),
     slackEvent: json("slack_event"),
     model: text("model").notNull().default(DEFAULT_MODEL).$type<z.infer<typeof modelSchema>>(),
     isBreadth: boolean("is_breadth").notNull().default(false),

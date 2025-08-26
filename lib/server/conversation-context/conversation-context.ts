@@ -3,6 +3,7 @@ import { CoreMessage } from "ai";
 import assertNever from "assert-never";
 
 import * as schema from "@/lib/server/db/schema";
+import { ChatMedia } from "@/lib/server/ragie-media";
 
 import ConversationDAO from "./conversation-dao";
 import Generator from "./generator";
@@ -19,6 +20,7 @@ export interface ReplyContext {
   conversationId: string;
   messages: CoreMessage[];
   sources: any[];
+  media: ChatMedia[];
 }
 
 export class Retriever {
@@ -96,7 +98,7 @@ export default class ConversationContext {
       slackEvent: options?.slackEvent,
     });
 
-    const { content: systemMessageContent, sources } = await this._retriever.retrieve(content);
+    const { content: systemMessageContent, sources, media } = await this._retriever.retrieve(content);
 
     await this._messageDao.create({
       conversationId: this._conversation.id,
@@ -108,10 +110,10 @@ export default class ConversationContext {
       prioritizeRecent: this._retriever.prioritizeRecent,
     });
 
-    return this._getContext(sources);
+    return this._getContext(sources, media);
   }
 
-  private async _getContext(sources: any[]): Promise<ReplyContext> {
+  private async _getContext(sources: any[], media: ChatMedia[]): Promise<ReplyContext> {
     const all = await this._messageDao.find({
       conversationId: this._conversation.id,
     });
@@ -133,6 +135,7 @@ export default class ConversationContext {
       conversationId: this._conversation.id,
       messages,
       sources,
+      media,
     };
   }
 
@@ -185,6 +188,7 @@ export class ReplyGenerator {
       role: "assistant",
       content: object.message,
       sources: context.sources,
+      media: context.media,
       model: this._generator.model,
     });
 
@@ -204,6 +208,7 @@ export class ReplyGenerator {
           role: "assistant",
           content: result.message,
           sources: context.sources,
+          media: context.media,
           model: this._generator.model,
         });
 
@@ -223,6 +228,7 @@ export class ReplyGenerator {
           role: "assistant",
           content: FAILED_MESSAGE_CONTENT,
           sources: context.sources,
+          media: context.media,
           model: this._generator.model,
         });
         return [null, pending.id] as const;
@@ -235,6 +241,7 @@ export class ReplyGenerator {
       role: "assistant",
       content: null,
       sources: context.sources,
+      media: context.media,
       model: this._generator.model,
     });
 

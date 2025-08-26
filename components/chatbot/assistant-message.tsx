@@ -11,6 +11,7 @@ import { IMAGE_FILE_TYPES, VIDEO_FILE_TYPES, AUDIO_FILE_TYPES } from "@/lib/file
 import { LLM_DISPLAY_NAMES, LLMModel } from "@/lib/llm/types";
 
 import { SourceMetadata } from "../../lib/types";
+import { InlineMedia, ChatMedia } from "../chat/InlineMedia";
 import Logo from "../tenant/logo/logo";
 
 const MAX_CITATION_LENGTH = 30;
@@ -102,6 +103,7 @@ interface Props {
   name: string;
   logoUrl?: string | null;
   sources: SourceMetadata[];
+  media?: ChatMedia[];
   onSelectedSource: (source: SourceMetadata) => void;
   model: LLMModel;
   isGenerating?: boolean;
@@ -112,6 +114,7 @@ export default function AssistantMessage({
   logoUrl,
   content,
   sources,
+  media,
   onSelectedSource,
   model,
   isGenerating,
@@ -136,6 +139,10 @@ export default function AssistantMessage({
         ) : (
           <div className="dot-pulse mt-[14px] ml-3" aria-label="Assistant is typing" aria-live="polite" />
         )}
+
+        {/* Inline media */}
+        <InlineMedia media={media} />
+
         <div className="flex flex-wrap mt-4">
           {sources.map((source, i) => (
             <Citation key={i} source={source} onClick={() => onSelectedSource(source)} />
