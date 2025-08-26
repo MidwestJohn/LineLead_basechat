@@ -3,6 +3,7 @@ import Handlebars from "handlebars";
 import { DEFAULT_GROUNDING_PROMPT, DEFAULT_SYSTEM_PROMPT } from "@/lib/constants";
 import * as schema from "@/lib/server/db/schema";
 import { getRagieClientAndPartition } from "@/lib/server/ragie";
+import { extractMediaFromScoredChunks, type ChatMedia } from "@/lib/server/ragie-media";
 import { SourceMetadata } from "@/lib/types";
 
 import { RAGIE_API_BASE_URL } from "../settings";
@@ -203,9 +204,12 @@ export async function getRetrievalSystemPrompt(
   });
 
   const company = { name: tenant.name };
+  const media: ChatMedia[] = extractMediaFromScoredChunks(response.scoredChunks, tenant.slug);
+
   return {
     content: renderSystemPrompt({ company, chunks }, tenant.systemPrompt),
     sources: dedupedSources,
+    media,
   };
 }
 

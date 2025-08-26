@@ -10,7 +10,9 @@ import CONNECTOR_MAP from "@/lib/connector-map";
 import { IMAGE_FILE_TYPES, VIDEO_FILE_TYPES, AUDIO_FILE_TYPES } from "@/lib/file-utils";
 import { LLM_DISPLAY_NAMES, LLMModel } from "@/lib/llm/types";
 
+import { Attachment, isImage, convertMediaToAttachments } from "../../lib/attachments";
 import { SourceMetadata } from "../../lib/types";
+import { ImageAttachment } from "../chat/ImageAttachment";
 import Logo from "../tenant/logo/logo";
 
 const MAX_CITATION_LENGTH = 30;
@@ -102,6 +104,8 @@ interface Props {
   name: string;
   logoUrl?: string | null;
   sources: SourceMetadata[];
+  media?: any[]; // Legacy media format for backward compatibility
+  attachments?: Attachment[]; // New attachment format
   onSelectedSource: (source: SourceMetadata) => void;
   model: LLMModel;
   isGenerating?: boolean;
@@ -112,6 +116,8 @@ export default function AssistantMessage({
   logoUrl,
   content,
   sources,
+  media,
+  attachments,
   onSelectedSource,
   model,
   isGenerating,
@@ -123,9 +129,23 @@ export default function AssistantMessage({
         <img src="/agent-linelead.png" alt="Lina" width={40} height={40} className="rounded" />
       </div>
       <div className="self-start mb-6 rounded-md ml-7 max-w-[calc(100%-60px)] bg-white p-4 border border-[#E5E7EB]">
+        {/* 1) Images first - render above the text */}
+        {media &&
+          media
+            .filter((m) => m.kind === "image")
+            .map((m, i) => (
+              <ImageAttachment
+                key={`image-${i}`}
+                src={m.url} // Already includes tenant parameter from media extraction
+                alt={m.label || "image"}
+                caption={m.label}
+              />
+            ))}
+
+        {/* 2) Short summary text */}
         {content?.length ? (
           <Markdown
-            className="markdown mt-[10px]"
+            className="markdown mt-[10px] whitespace-pre-wrap leading-relaxed"
             rehypePlugins={[rehypeHighlight]}
             components={{
               pre: CodeBlock,
@@ -134,14 +154,32 @@ export default function AssistantMessage({
             {content}
           </Markdown>
         ) : (
-          <div className="dot-pulse mt-[14px] ml-3" aria-label="Assistant is typing" aria-live="polite" />
+          <div className="dot-pulse mt-[14px] ml-3 pl-2" aria-label="Assistant is typing" aria-live="polite" />
         )}
+
+        {/* 3) Other files (video/audio) as chips */}
+        {media && media.filter((m) => m.kind !== "image").length > 0 && (
+          <div className="mt-2 flex flex-wrap gap-2">
+            {media
+              .filter((m) => m.kind !== "image")
+              .map((m, i) => (
+                <a
+                  key={`file-${i}`}
+                  href={m.url}
+                  className="inline-flex items-center rounded-lg border px-2.5 py-1.5 text-sm hover:bg-muted"
+                >
+                  {m.label || `${m.kind} file`}
+                </a>
+              ))}
+          </div>
+        )}
+
+        {/* 4) Source citations */}
         <div className="flex flex-wrap mt-4">
           {sources.map((source, i) => (
             <Citation key={i} source={source} onClick={() => onSelectedSource(source)} />
           ))}
         </div>
-        {/* status label removed per spec */}
       </div>
     </div>
   );

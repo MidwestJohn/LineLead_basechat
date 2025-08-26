@@ -23,7 +23,14 @@ import { SourceMetadata } from "../../lib/types";
 import AssistantMessage from "./assistant-message";
 import ChatInput from "./chat-input";
 
-type AiMessage = { content: string; role: "assistant"; id?: string; sources: SourceMetadata[]; model?: LLMModel };
+type AiMessage = {
+  content: string;
+  role: "assistant";
+  id?: string;
+  sources: SourceMetadata[];
+  media?: any[];
+  model?: LLMModel;
+};
 type UserMessage = { content: string; role: "user" };
 type SystemMessage = { content: string; role: "system" };
 type Message = AiMessage | UserMessage | SystemMessage;
@@ -288,6 +295,7 @@ export default function Chatbot({ tenant, conversationId, initMessage, onSelecte
                   content={message.content}
                   id={message.id}
                   sources={message.sources}
+                  media={message.media}
                   onSelectedSource={onSelectedSource}
                   model={message.model || selectedModel}
                   isGenerating={false}
@@ -303,6 +311,7 @@ export default function Chatbot({ tenant, conversationId, initMessage, onSelecte
               content={object?.message}
               id={pendingMessage?.id}
               sources={[]}
+              media={[]}
               onSelectedSource={onSelectedSource}
               model={pendingMessage?.model || selectedModel}
               isGenerating
