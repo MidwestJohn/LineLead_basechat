@@ -1,42 +1,28 @@
-import { Inter, Inter_Tight } from "next/font/google";
+import { Inter } from "next/font/google";
 import Image from "next/image";
-
-import RagieLogo from "@/components/ragie-logo";
-import * as settings from "@/lib/server/settings";
-
-const inter_tight = Inter_Tight({
-  subsets: ["latin"],
-  display: "swap",
-});
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Layout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <div className="h-screen w-full flex flex-col items-center bg-white overflow-hidden">
-      <div className="flex-1 w-full overflow-y-auto">
-        <div className="w-full max-w-[442px] px-4 pt-10 mx-auto h-full flex flex-col items-center justify-center max-[460px]:px-8">
-          <div className="flex items-center mb-16 w-full max-[460px]:justify-start max-[460px]:mr-6">
-            <Image
-              src="/images/title-logo.svg"
-              alt={settings.APP_NAME}
-              width={410}
-              height={64}
-              className="max-w-[410px] max-h-[64px] max-[460px]:max-w-[185px] max-[460px]:max-h-[24px]"
-              priority
-            />
-          </div>
-          <div className="flex flex-col items-center w-full">{children}</div>
+    <div className="min-h-screen bg-background">
+      <header className="w-full border-b">
+        <div className="mx-auto flex h-14 max-w-[1140px] items-center px-4">
+          <Image src="/linelead-wordmark.svg" alt="Line Lead" width={140} height={28} className="h-7 w-auto" priority />
         </div>
-      </div>
-      <div className="h-20 shrink-0 w-full bg-[#27272A] flex items-center justify-center">
-        <div className={`mr-2.5 text-md text-[#FEFEFE] ${inter.className}`}>Powered by</div>
-        <div>
-          <a href="https://ragie.ai/?utm_source=oss-chatbot" target="_blank">
-            <RagieLogo />
-          </a>
+      </header>
+
+      <main className="mx-auto max-w-[1140px] px-4 py-8">
+        <div className="w-full max-w-[442px] mx-auto flex flex-col items-center justify-center min-h-[calc(100vh-200px)]">
+          {children}
         </div>
-      </div>
+      </main>
+
+      <footer className="border-t">
+        <div className={`mx-auto max-w-[1140px] px-4 py-6 text-sm text-muted-foreground ${inter.className}`}>
+          © {new Date().getFullYear()} Line Lead. All rights reserved.
+        </div>
+      </footer>
     </div>
   );
 }

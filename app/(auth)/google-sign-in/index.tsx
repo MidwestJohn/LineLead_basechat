@@ -24,7 +24,7 @@ export default function GoogleSignIn({ redirectTo }: Props) {
   return (
     <button
       type="submit"
-      className="mb-8 w-full flex bg-[#F2F2F2] py-2.5 px-3 rounded-[48px] w-full justify-center items-center"
+      className="mb-8 w-full flex bg-[#F2F2F2] py-2.5 px-3 rounded-[48px] w-full justify-center items-center hover:bg-[#E8E8E8] focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:outline-none transition-all"
       onClick={handleClick}
     >
       <Image src={GoogleMarkSVG} alt="Continue with Google" />

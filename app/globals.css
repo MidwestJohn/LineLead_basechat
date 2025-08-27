@@ -9,11 +9,11 @@ body {
 
 @layer base {
   :root {
+    /* Line Lead Brand Colors */
     --brand: #dc1714;
     --bg-app: #f0f9ff;
     --text-primary: #111827;
-    --header-h: 64px; /* set to your real header height */
-    /* bottom nav will be injected; default to 80px if not set yet */
+    --header-h: 64px;
     --bottom-nav-h: 80px;
     --menu-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.12), 0 4px 12px -6px rgba(0, 0, 0, 0.08);
     --menu-border: #e4e4e7;
@@ -23,21 +23,23 @@ body {
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
     --popover: var(--menu-bg);
-    --popover-foreground: #111827; /* slate-900 */
+    --popover-foreground: #111827;
     --border: var(--menu-border);
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
+
+    /* Line Lead Red Primary Theme */
+    --primary: 358 76% 52%; /* #DC1714 in HSL */
+    --primary-foreground: 0 0% 100%;
+    --ring: 358 76% 52%; /* Focus ring matches brand */
+
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
+    --muted: 0 0% 96%;
     --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
+    --accent: 358 76% 97%; /* Light red accent */
     --accent-foreground: 240 5.9% 10%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
@@ -79,6 +81,19 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  /* Line Lead brand link styling */
+  a {
+    color: hsl(var(--primary));
+  }
+  a:hover {
+    opacity: 0.9;
+  }
+  a:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+    border-radius: 2px;
   }
 
   .markdown {

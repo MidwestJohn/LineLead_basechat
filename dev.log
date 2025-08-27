@@ -125,3 +125,58 @@ Stream generation took 6785 ms
  GET /o/line-lead-dev 200 in 300ms
  GET /api/conversations?page=1&limit=20 200 in 162ms
  HEAD /healthz 200 in 37ms
+ ○ Compiling /api/ragie/asset ...
+ ✓ Compiled /api/ragie/asset in 1398ms
+Error in asset proxy route: Error [ZodError]: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "null",
+    "path": [],
+    "message": "Expected string, received null"
+  }
+]
+    at requireAuthContextFromRequest (lib/server/utils.ts:48:28)
+    at GET (app/api/ragie/asset/route.ts:32:59)
+  46 |
+  47 | export async function requireAuthContextFromRequest(request: Request) {
+> 48 |   const slug = tenantSchema.parse(request.headers.get("tenant"));
+     |                            ^
+  49 |   return requireAuthContext(slug);
+  50 | }
+  51 | {
+  issues: [Array],
+  addIssue: [Function (anonymous)],
+  addIssues: [Function (anonymous)]
+}
+ HEAD /api/ragie/asset?href=https%3A%2F%2Fapi.ragie.ai%2Fdocuments%2F123%2Fchunks%2F456%2Fimage 500 in 1580ms
+ GET / 307 in 382ms
+ GET /start 307 in 371ms
+ GET /o/line-lead-dev 200 in 290ms
+ GET /api/tenants 200 in 402ms
+ POST /api/conversations 200 in 818ms
+ GET /o/line-lead-dev/conversations/5235e646-ace6-456e-853c-5bae141ed532 200 in 284ms
+Regular retrieval found 0 chunk(s)
+No chunks found, trying again with rerank disabled
+Rerank fallback found 6 chunk(s)
+Using provider: openai for model: gpt-4o
+ GET /api/conversations/5235e646-ace6-456e-853c-5bae141ed532/messages/e8ac36f2-54e2-42bf-9baa-e1f8a423e45f 200 in 131ms
+Stream generation took 13153 ms
+ POST /api/conversations/5235e646-ace6-456e-853c-5bae141ed532/messages 200 in 20135ms
+Regular retrieval found 0 chunk(s)
+No chunks found, trying again with rerank disabled
+Rerank fallback found 6 chunk(s)
+Using provider: openai for model: gpt-4o
+ GET /api/conversations/5235e646-ace6-456e-853c-5bae141ed532/messages/9d293eb1-fb52-43db-a275-3911641a6706 200 in 317ms
+Stream generation took 6145 ms
+ POST /api/conversations/5235e646-ace6-456e-853c-5bae141ed532/messages 200 in 21014ms
+ GET /api/documents/8692a000-ac2f-4f9c-b82e-50be7d0b448f 200 in 1707ms
+ ✓ Compiled in 389ms
+ ✓ Compiled in 302ms
+ GET /o/line-lead-dev/conversations/648ae35e-495a-444c-b22e-50dfc3b61727 200 in 371ms
+ GET /o/line-lead-dev/conversations/5235e646-ace6-456e-853c-5bae141ed532 200 in 372ms
+ ✓ Compiled in 321ms
+ ✓ Compiled in 96ms
+ GET /o/line-lead-dev/conversations/5235e646-ace6-456e-853c-5bae141ed532 200 in 358ms
+ GET /o/line-lead-dev/conversations/648ae35e-495a-444c-b22e-50dfc3b61727 200 in 358ms
+ ✓ Compiled in 120ms

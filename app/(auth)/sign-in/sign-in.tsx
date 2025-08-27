@@ -44,14 +44,14 @@ export default function SignIn({ redirectTo, reset }: { redirectTo?: string; res
         name="email"
         type="email"
         placeholder="Email"
-        className="w-full border rounded-[6px] text-[16px] placeholder-[#74747A] px-4 py-2 mb-4"
+        className="w-full border rounded-[6px] text-[16px] placeholder-[#74747A] px-4 py-2 mb-4 focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:outline-none transition-all"
         onChange={handleEmailChange}
       />
       <input
         name="password"
         type="password"
         placeholder="Password"
-        className="w-full border rounded-[6px] text-[16px] placeholder-[#74747A] px-4 py-2 mb-8"
+        className="w-full border rounded-[6px] text-[16px] placeholder-[#74747A] px-4 py-2 mb-8 focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:outline-none transition-all"
         onChange={handlePasswordChange}
       />
       <Button>Sign in</Button>
