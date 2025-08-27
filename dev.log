@@ -1,108 +1,127 @@
 
-> chatbot-example@0.1.0 dev
-> next dev
+> line-lead-frontend-demo@0.1.0 dev
+> next dev --turbo
 
-   ▲ Next.js 15.3.0
+   ▲ Next.js 15.3.0 (Turbopack)
    - Local:        http://localhost:3000
-   - Network:      http://172.20.10.12:3000
+   - Network:      http://192.168.1.231:3000
    - Environments: .env
    - Experiments (use with caution):
      ✓ authInterrupts
 
  ✓ Starting...
- ✓ Ready in 1526ms
- ✓ Compiled /middleware in 194ms (165 modules)
+ ✓ Compiled middleware in 131ms
+ ✓ Ready in 1106ms
+ ✓ Compiled /healthz in 367ms
+ HEAD /healthz 200 in 450ms
  ○ Compiling / ...
- ✓ Compiled / in 1778ms (1710 modules)
- GET / 307 in 3271ms
+ ✓ Compiled / in 1397ms
+ GET / 307 in 2534ms
  ○ Compiling /start ...
- ✓ Compiled /start in 1495ms (2154 modules)
- ✓ Compiled in 657ms (375 modules)
- GET /start 307 in 2921ms
+ ✓ Compiled /start in 2.5s
+ GET /start 307 in 3182ms
  ○ Compiling /o/[slug] ...
- ✓ Compiled /o/[slug] in 1278ms (2789 modules)
- GET /o/line-lead-dev 200 in 3673ms
- ○ Compiling /api/tenants ...
- ✓ Compiled /api/tenants in 565ms (2792 modules)
- GET /api/tenants 200 in 1801ms
- ○ Compiling /_not-found ...
- ✓ Compiled /_not-found in 943ms (2784 modules)
- GET /.well-known/appspecific/com.chrome.devtools.json 404 in 1134ms
- ○ Compiling / ...
- ✓ Compiled / in 534ms (2222 modules)
- GET / 307 in 32908ms
- ✓ Compiled /start in 227ms (2224 modules)
- GET /start 307 in 6037ms
- GET /o/line-lead-dev 200 in 1901ms
- ✓ Compiled /api/tenants in 263ms (2227 modules)
- GET /api/tenants 200 in 865ms
- ✓ Compiled in 887ms (2794 modules)
-[2m2025-08-26T01:10:36.369Z[0m [31mERROR[0m [1m[Better Auth]:[0m INTERNAL_SERVER_ERROR Error: getaddrinfo ENOTFOUND ep-orange-snow-ae78symz-pooler.c-2.us-east-2.aws.neon.tech
-    at async requireSession (lib/server/utils.ts:23:18)
-    at async requireAuthContext (lib/server/utils.ts:32:18)
-    at async authOrRedirect (lib/server/utils.ts:65:11)
-    at async MainLayout (app/(main)/o/[slug]/layout.tsx:20:39)
-  21 |
-  22 | export async function requireSession() {
-> 23 |   const session = await auth.api.getSession({
-     |                  ^
-  24 |     headers: await headers(), // you need to pass the headers object.
-  25 |   });
-  26 | {
-  errno: -3008,
-  code: 'ENOTFOUND',
-  syscall: 'getaddrinfo',
-  hostname: 'ep-orange-snow-ae78symz-pooler.c-2.us-east-2.aws.neon.tech'
-}
-[2m2025-08-26T01:10:36.416Z[0m [31mERROR[0m [1m[Better Auth]:[0m INTERNAL_SERVER_ERROR Error: getaddrinfo ENOTFOUND ep-orange-snow-ae78symz-pooler.c-2.us-east-2.aws.neon.tech
-    at async requireSession (lib/server/utils.ts:23:18)
-    at async requireAuthContext (lib/server/utils.ts:32:18)
-    at async authOrRedirect (lib/server/utils.ts:65:11)
-    at async Home (app/(main)/o/[slug]/page.tsx:7:18)
-  21 |
-  22 | export async function requireSession() {
-> 23 |   const session = await auth.api.getSession({
-     |                  ^
-  24 |     headers: await headers(), // you need to pass the headers object.
-  25 |   });
-  26 | {
-  errno: -3008,
-  code: 'ENOTFOUND',
-  syscall: 'getaddrinfo',
-  hostname: 'ep-orange-snow-ae78symz-pooler.c-2.us-east-2.aws.neon.tech'
-}
- ⨯ Error: getaddrinfo ENOTFOUND ep-orange-snow-ae78symz-pooler.c-2.us-east-2.aws.neon.tech
-    at async findTenantBySlug (lib/server/service.tsx:492:18)
-    at async authOrRedirect (lib/server/utils.ts:67:19)
-    at async MainLayout (app/(main)/o/[slug]/layout.tsx:20:39)
-  490 |
-  491 | export async function findTenantBySlug(slug: string) {
-> 492 |   const tenants = await db.select().from(schema.tenants).where(eq(schema.tenants.slug, slug));
-      |                  ^
-  493 |   assert(tenants.length === 0 || tenants.length === 1, "expect single record");
-  494 |   return tenants.length ? tenants[0] : null;
-  495 | } {
-  errno: -3008,
-  code: 'ENOTFOUND',
-  syscall: 'getaddrinfo',
-  hostname: 'ep-orange-snow-ae78symz-pooler.c-2.us-east-2.aws.neon.tech',
-  digest: '2196113305'
-}
- ⨯ Error: getaddrinfo ENOTFOUND ep-orange-snow-ae78symz-pooler.c-2.us-east-2.aws.neon.tech
-    at async findTenantBySlug (lib/server/service.tsx:492:18)
-    at async authOrRedirect (lib/server/utils.ts:67:19)
-    at async Home (app/(main)/o/[slug]/page.tsx:7:18)
-  490 |
-  491 | export async function findTenantBySlug(slug: string) {
-> 492 |   const tenants = await db.select().from(schema.tenants).where(eq(schema.tenants.slug, slug));
-      |                  ^
-  493 |   assert(tenants.length === 0 || tenants.length === 1, "expect single record");
-  494 |   return tenants.length ? tenants[0] : null;
-  495 | } {
-  errno: -3008,
-  code: 'ENOTFOUND',
-  syscall: 'getaddrinfo',
-  hostname: 'ep-orange-snow-ae78symz-pooler.c-2.us-east-2.aws.neon.tech',
-  digest: '788318598'
-}
- GET /o/line-lead-dev 200 in 24791ms
+ ✓ Compiled /o/[slug] in 1559ms
+ GET /o/line-lead-dev 200 in 2556ms
+ ○ Compiling /favicon.ico ...
+ GET /favicon.ico?favicon.bb7f1b84.ico 200 in 549ms
+ ✓ Compiled /favicon.ico in 1066ms
+ GET /api/tenants 200 in 1270ms
+ ○ Compiling /api/conversations ...
+ ✓ Compiled /api/conversations in 1002ms
+ POST /api/conversations 200 in 2665ms
+ ○ Compiling /o/[slug]/conversations/[id] ...
+ ✓ Compiled /o/[slug]/conversations/[id] in 2.2s
+ GET /o/line-lead-dev/conversations/648ae35e-495a-444c-b22e-50dfc3b61727 200 in 3228ms
+ ○ Compiling /api/conversations/[conversationId]/messages ...
+ ✓ Compiled /api/conversations/[conversationId]/messages in 1090ms
+Regular retrieval found 0 chunk(s)
+No chunks found, trying again with rerank disabled
+Rerank fallback found 6 chunk(s)
+Using provider: openai for model: gpt-4o
+ ○ Compiling /api/conversations/[conversationId]/messages/[messageId] ...
+ ✓ Compiled /api/conversations/[conversationId]/messages/[messageId] in 798ms
+ GET /api/conversations/648ae35e-495a-444c-b22e-50dfc3b61727/messages/abbfea18-ef91-4e00-84cb-a0293e2f20a7 200 in 1518ms
+Stream generation took 7081 ms
+ POST /api/conversations/648ae35e-495a-444c-b22e-50dfc3b61727/messages 200 in 15122ms
+ ○ Compiling /api/documents/[id] ...
+ ✓ Compiled /api/documents/[id] in 1112ms
+ GET /api/documents/e3b6ef05-7f1b-4b9d-abff-820209db2922 200 in 2518ms
+ ○ Compiling /api/ragie/stream ...
+ ✓ Compiled /api/ragie/stream in 840ms
+ GET /api/ragie/stream?url=https%3A%2F%2Fapi.ragie.ai%2Fdocuments%2Fe3b6ef05-7f1b-4b9d-abff-820209db2922%2Fchunks%2F7a83e3d6-a558-4c86-90ab-a2037e9ea75d%2Fcontent%3Fmedia_type%3Dimage%2Fjpeg&tenant=line-lead-dev 200 in 1188ms
+Regular retrieval found 0 chunk(s)
+No chunks found, trying again with rerank disabled
+Rerank fallback found 6 chunk(s)
+Using provider: openai for model: gpt-4o
+ GET /api/conversations/648ae35e-495a-444c-b22e-50dfc3b61727/messages/b59b1044-7665-4555-93dd-e5d4526359e6 200 in 123ms
+Stream generation took 4462 ms
+ POST /api/conversations/648ae35e-495a-444c-b22e-50dfc3b61727/messages 200 in 12220ms
+ GET /api/documents/0000e0ea-1210-442d-be1c-26fbf0678900 200 in 486ms
+ GET /api/ragie/stream?url=https%3A%2F%2Fapi.ragie.ai%2Fdocuments%2F0000e0ea-1210-442d-be1c-26fbf0678900%2Fcontent%3Fmedia_type%3Dvideo%2Fmp4&tenant=line-lead-dev 206 in 552ms
+ GET /api/ragie/stream?url=https%3A%2F%2Fapi.ragie.ai%2Fdocuments%2F0000e0ea-1210-442d-be1c-26fbf0678900%2Fcontent%3Fmedia_type%3Dvideo%2Fmp4&tenant=line-lead-dev 206 in 1814ms
+ GET /api/ragie/stream?url=https%3A%2F%2Fapi.ragie.ai%2Fdocuments%2F0000e0ea-1210-442d-be1c-26fbf0678900%2Fcontent%3Fmedia_type%3Dvideo%2Fmp4&tenant=line-lead-dev 206 in 735ms
+ GET /api/ragie/stream?url=https%3A%2F%2Fapi.ragie.ai%2Fdocuments%2F0000e0ea-1210-442d-be1c-26fbf0678900%2Fcontent%3Fmedia_type%3Dvideo%2Fmp4&tenant=line-lead-dev 206 in 512ms
+ GET /api/ragie/stream?url=https%3A%2F%2Fapi.ragie.ai%2Fdocuments%2F0000e0ea-1210-442d-be1c-26fbf0678900%2Fcontent%3Fmedia_type%3Dvideo%2Fmp4&tenant=line-lead-dev 206 in 508ms
+ GET /api/ragie/stream?url=https%3A%2F%2Fapi.ragie.ai%2Fdocuments%2F0000e0ea-1210-442d-be1c-26fbf0678900%2Fcontent%3Fmedia_type%3Dvideo%2Fmp4&tenant=line-lead-dev 206 in 759ms
+ GET /o/line-lead-dev/conversations/648ae35e-495a-444c-b22e-50dfc3b61727 200 in 441ms
+ ○ Compiling /_not-found/page ...
+ ✓ Compiled /_not-found/page in 1057ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 1098ms
+ GET /o/line-lead-dev/conversations/648ae35e-495a-444c-b22e-50dfc3b61727 200 in 435ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 180ms
+ GET /api/tenants 200 in 400ms
+ GET /api/conversations/648ae35e-495a-444c-b22e-50dfc3b61727/messages 200 in 423ms
+ GET /api/documents/48eac37c-c7ad-466f-97d2-2f6472317721 200 in 1014ms
+ GET /api/ragie/stream?url=https%3A%2F%2Fapi.ragie.ai%2Fdocuments%2F48eac37c-c7ad-466f-97d2-2f6472317721%2Fchunks%2Fa76c2aaf-1a75-4772-ad51-a7c32ef36487%2Fcontent%3Fmedia_type%3Dimage%2Fjpeg&tenant=line-lead-dev 200 in 263ms
+ GET /api/documents/e3b6ef05-7f1b-4b9d-abff-820209db2922 200 in 650ms
+ GET /api/ragie/stream?url=https%3A%2F%2Fapi.ragie.ai%2Fdocuments%2Fe3b6ef05-7f1b-4b9d-abff-820209db2922%2Fchunks%2Ffd8d3b5f-d503-4763-abc3-86ea7b6f3eb7%2Fcontent%3Fmedia_type%3Dimage%2Fjpeg&tenant=line-lead-dev 200 in 310ms
+ GET /api/documents/48eac37c-c7ad-466f-97d2-2f6472317721 200 in 390ms
+ GET /api/documents/0000e0ea-1210-442d-be1c-26fbf0678900 200 in 405ms
+ GET /api/ragie/stream?url=https%3A%2F%2Fapi.ragie.ai%2Fdocuments%2F0000e0ea-1210-442d-be1c-26fbf0678900%2Fcontent%3Fmedia_type%3Dvideo%2Fmp4&tenant=line-lead-dev 206 in 474ms
+ GET /api/ragie/stream?url=https%3A%2F%2Fapi.ragie.ai%2Fdocuments%2F0000e0ea-1210-442d-be1c-26fbf0678900%2Fcontent%3Fmedia_type%3Dvideo%2Fmp4&tenant=line-lead-dev 206 in 829ms
+ GET /api/ragie/stream?url=https%3A%2F%2Fapi.ragie.ai%2Fdocuments%2F0000e0ea-1210-442d-be1c-26fbf0678900%2Fcontent%3Fmedia_type%3Dvideo%2Fmp4&tenant=line-lead-dev 206 in 474ms
+ GET /api/ragie/stream?url=https%3A%2F%2Fapi.ragie.ai%2Fdocuments%2F0000e0ea-1210-442d-be1c-26fbf0678900%2Fcontent%3Fmedia_type%3Dvideo%2Fmp4&tenant=line-lead-dev 206 in 472ms
+ GET /api/ragie/stream?url=https%3A%2F%2Fapi.ragie.ai%2Fdocuments%2F0000e0ea-1210-442d-be1c-26fbf0678900%2Fcontent%3Fmedia_type%3Dvideo%2Fmp4&tenant=line-lead-dev 206 in 504ms
+ GET /api/ragie/stream?url=https%3A%2F%2Fapi.ragie.ai%2Fdocuments%2F0000e0ea-1210-442d-be1c-26fbf0678900%2Fcontent%3Fmedia_type%3Dvideo%2Fmp4&tenant=line-lead-dev 206 in 592ms
+ GET /api/conversations?page=1&limit=20 200 in 373ms
+ ○ Compiling /sign-up ...
+ ✓ Compiled /sign-up in 1055ms
+ GET /sign-up 200 in 1180ms
+ ○ Compiling /api/auth/[...all] ...
+ ✓ Compiled /api/auth/[...all] in 1131ms
+[2m2025-08-27T03:15:56.845Z[0m [34mINFO[0m [1m[Better Auth]:[0m Sign-up attempt for existing email: john@linelead.io
+ POST /api/auth/sign-up/email 422 in 2103ms
+[2m2025-08-27T03:15:56.851Z[0m [34mINFO[0m [1m[Better Auth]:[0m Sign-up attempt for existing email: john@linelead.io
+ POST /api/auth/sign-up/email 422 in 811ms
+[2m2025-08-27T03:15:59.092Z[0m [33mWARN[0m [1m[Better Auth]:[0m Your Better Auth config includes advanced.generateId which is deprecated. Please use advanced.database.generateId instead. This will be removed in future releases.
+ POST /api/auth/sign-in/social 200 in 76ms
+[2m2025-08-27T03:16:04.861Z[0m [33mWARN[0m [1m[Better Auth]:[0m Your Better Auth config includes advanced.generateId which is deprecated. Please use advanced.database.generateId instead. This will be removed in future releases.
+ GET /api/auth/callback/google?state=VzBtbd6C35nYrUw7H-tGHXmNn3KB4Bl4&code=4%2F0AVMBsJg6eIMKmfVWz_10yEV5jjmyhsQTXi4uQd_6Py57Ft3dxxzIi1Rh5zDpwCv4_rVnTw&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=1&hd=linelead.io&prompt=none 302 in 518ms
+ GET / 307 in 118ms
+ GET /start 307 in 364ms
+ GET /o/line-lead-dev 200 in 311ms
+ GET /api/tenants 200 in 210ms
+ ✓ Compiled in 39ms
+ GET /api/tenants 200 in 795ms
+ GET /api/conversations/648ae35e-495a-444c-b22e-50dfc3b61727/messages 200 in 846ms
+ GET /api/tenants 200 in 178ms
+ GET /api/conversations/648ae35e-495a-444c-b22e-50dfc3b61727/messages 200 in 144ms
+ GET /api/tenants 200 in 171ms
+ GET /api/tenants 200 in 172ms
+ POST /api/conversations 200 in 763ms
+ GET /o/line-lead-dev/conversations/9713dd3c-d374-41f7-b0c4-63021e4b948b 200 in 683ms
+Regular retrieval found 4 chunk(s)
+Using provider: openai for model: gpt-4o
+ GET /api/conversations/9713dd3c-d374-41f7-b0c4-63021e4b948b/messages/4cf9e19d-8faf-4f95-920c-96820988a092 200 in 128ms
+ ○ Compiling /o/[slug]/data ...
+ ✓ Compiled /o/[slug]/data in 2.2s
+ GET /o/line-lead-dev/data 200 in 3443ms
+ ○ Compiling /api/tenants/current/documents ...
+Stream generation took 6785 ms
+ POST /api/conversations/9713dd3c-d374-41f7-b0c4-63021e4b948b/messages 200 in 12327ms
+ ✓ Compiled /api/tenants/current/documents in 895ms
+ GET /api/tenants/current/documents?cursor= 200 in 2815ms
+ GET /o/line-lead-dev 200 in 300ms
+ GET /api/conversations?page=1&limit=20 200 in 162ms
+ HEAD /healthz 200 in 37ms

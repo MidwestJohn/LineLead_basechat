@@ -212,9 +212,25 @@ export class ReplyGenerator {
           model: this._generator.model,
         });
 
-        // Create a simple stream that immediately returns the content
+        // Create a stream with media first, then content
         const stream = new ReadableStream({
           start(controller) {
+            // First emit any images
+            const images = context.media.filter((m) => m.kind === "image");
+            if (images.length > 0) {
+              for (const img of images) {
+                controller.enqueue(
+                  new TextEncoder().encode(
+                    JSON.stringify({
+                      type: "image",
+                      src: img.url,
+                      alt: img.label || "Image",
+                    }) + "\n",
+                  ),
+                );
+              }
+            }
+            // Then emit the text result
             controller.enqueue(new TextEncoder().encode(JSON.stringify(result)));
             controller.close();
           },
@@ -235,7 +251,7 @@ export class ReplyGenerator {
       }
     }
 
-    // Original streaming logic for other models
+    // Enhanced streaming logic for other models - emit images first
     const pending = await this._messageDao.create({
       conversationId: context.conversationId,
       role: "assistant",
@@ -247,7 +263,9 @@ export class ReplyGenerator {
 
     try {
       const startTime = Date.now();
-      const stream = this._generator.generateStream(context, {
+
+      // Create custom stream that emits media first, then LLM response
+      const llmStream = this._generator.generateStream(context, {
         onFinish: async (event) => {
           const endTime = Date.now();
           console.log(`Stream generation took ${endTime - startTime} ms`);
@@ -263,7 +281,50 @@ export class ReplyGenerator {
           });
         },
       });
-      return [stream, pending.id] as const;
+
+      // Create enhanced stream that emits images first
+      const enhancedStream = new ReadableStream({
+        async start(controller) {
+          try {
+            // First, emit any images immediately
+            const images = context.media.filter((m) => m.kind === "image");
+            if (images.length > 0) {
+              for (const img of images) {
+                controller.enqueue(
+                  new TextEncoder().encode(
+                    JSON.stringify({
+                      type: "image",
+                      src: img.url,
+                      alt: img.label || "Image",
+                    }) + "\n",
+                  ),
+                );
+              }
+            }
+
+            // Then stream the LLM response
+            const reader = llmStream.textStream.getReader();
+
+            try {
+              while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+
+                controller.enqueue(new TextEncoder().encode(value));
+              }
+            } finally {
+              reader.releaseLock();
+            }
+
+            controller.close();
+          } catch (error) {
+            console.error("Enhanced stream error:", error);
+            controller.error(error);
+          }
+        },
+      });
+
+      return [enhancedStream, pending.id] as const;
     } catch (error) {
       console.error("Error generating stream:", error);
       await this._messageDao.update(pending.id, {

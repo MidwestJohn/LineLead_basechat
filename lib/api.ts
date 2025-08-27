@@ -34,6 +34,7 @@ export const conversationMessagesResponseSchema = z.array(
       content: z.string(),
       role: z.literal("assistant"),
       sources: z.array(z.any()).default([]),
+      media: z.array(z.any()).default([]),
       expanded: z.boolean().default(false),
       model: modelSchema,
     }),
