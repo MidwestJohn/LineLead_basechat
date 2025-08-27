@@ -73,14 +73,14 @@ export default function SignUp({ redirectTo }: { redirectTo?: string }) {
           name="firstName"
           type="text"
           placeholder="First name"
-          className="w-full border rounded-[6px] text-[16px] placeholder-[#74747A] px-4 py-2 mb-4 focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:outline-none transition-all"
+          className="w-full border rounded-[6px] text-[16px] placeholder-[#74747A] px-4 py-2 mb-4 focus-visible:ring-2 focus-visible:ring-[#DC1714] focus-visible:ring-offset-2 focus-visible:outline-none transition-all"
           onChange={(e) => dispatch({ firstName: e.target.value })}
         />
         <input
           name="lastName"
           type="text"
           placeholder="Last name"
-          className="w-full border rounded-[6px] text-[16px] placeholder-[#74747A] px-4 py-2 mb-4 focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:outline-none transition-all"
+          className="w-full border rounded-[6px] text-[16px] placeholder-[#74747A] px-4 py-2 mb-4 focus-visible:ring-2 focus-visible:ring-[#DC1714] focus-visible:ring-offset-2 focus-visible:outline-none transition-all"
           onChange={(e) => dispatch({ lastName: e.target.value })}
         />
       </div>
@@ -88,21 +88,21 @@ export default function SignUp({ redirectTo }: { redirectTo?: string }) {
         name="email"
         type="email"
         placeholder="Email"
-        className="w-full border rounded-[6px] text-[16px] placeholder-[#74747A] px-4 py-2 mb-4 focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:outline-none transition-all"
+        className="w-full border rounded-[6px] text-[16px] placeholder-[#74747A] px-4 py-2 mb-4 focus-visible:ring-2 focus-visible:ring-[#DC1714] focus-visible:ring-offset-2 focus-visible:outline-none transition-all"
         onChange={(e) => dispatch({ email: e.target.value })}
       />
       <input
         name="password"
         type="password"
         placeholder="Password"
-        className="w-full border rounded-[6px] text-[16px] placeholder-[#74747A] px-4 py-2 mb-4 focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:outline-none transition-all"
+        className="w-full border rounded-[6px] text-[16px] placeholder-[#74747A] px-4 py-2 mb-4 focus-visible:ring-2 focus-visible:ring-[#DC1714] focus-visible:ring-offset-2 focus-visible:outline-none transition-all"
         onChange={(e) => dispatch({ password: e.target.value })}
       />
       <input
         name="confirm"
         type="password"
         placeholder="Confirm password"
-        className="w-full border rounded-[6px] text-[16px] placeholder-[#74747A] px-4 py-2 mb-8 focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:outline-none transition-all"
+        className="w-full border rounded-[6px] text-[16px] placeholder-[#74747A] px-4 py-2 mb-8 focus-visible:ring-2 focus-visible:ring-[#DC1714] focus-visible:ring-offset-2 focus-visible:outline-none transition-all"
         onChange={(e) => dispatch({ confirm: e.target.value })}
       />
       <Button>Sign up</Button>

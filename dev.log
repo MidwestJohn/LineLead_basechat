@@ -493,3 +493,54 @@ https://nextjs.org/docs/messages/module-not-found
  ✓ Compiled /o/[slug]/conversations/[id] in 33ms
  GET /sign-in 200 in 555ms
  GET /o/line-lead-dev/conversations/648ae35e-495a-444c-b22e-50dfc3b61727 200 in 1278ms
+ GET /healthz 200 in 29ms
+ GET / 307 in 355ms
+ GET /start 307 in 406ms
+ GET /o/line-lead-dev 200 in 865ms
+ GET /api/tenants 200 in 423ms
+ POST /api/conversations 200 in 1459ms
+ GET /o/line-lead-dev/conversations/e5dd6e78-f5f4-4dfb-aad6-417daa59fce4 200 in 329ms
+Regular retrieval found 0 chunk(s)
+No chunks found, trying again with rerank disabled
+Rerank fallback found 6 chunk(s)
+Using provider: openai for model: gpt-4o
+ GET /api/conversations/e5dd6e78-f5f4-4dfb-aad6-417daa59fce4/messages/7878ebcb-e137-4bb9-8967-83708fa03a81 200 in 302ms
+Stream generation took 7919 ms
+ POST /api/conversations/e5dd6e78-f5f4-4dfb-aad6-417daa59fce4/messages 200 in 15289ms
+ GET /api/documents/48eac37c-c7ad-466f-97d2-2f6472317721 200 in 681ms
+ GET /api/ragie/stream?url=https%3A%2F%2Fapi.ragie.ai%2Fdocuments%2F48eac37c-c7ad-466f-97d2-2f6472317721%2Fchunks%2Fd3249a52-cb04-4803-8297-8a0e2e1f286e%2Fcontent%3Fmedia_type%3Dimage%2Fjpeg&tenant=line-lead-dev 200 in 280ms
+ GET /api/documents/e3b6ef05-7f1b-4b9d-abff-820209db2922 200 in 390ms
+ GET /api/ragie/stream?url=https%3A%2F%2Fapi.ragie.ai%2Fdocuments%2Fe3b6ef05-7f1b-4b9d-abff-820209db2922%2Fchunks%2F7a83e3d6-a558-4c86-90ab-a2037e9ea75d%2Fcontent%3Fmedia_type%3Dimage%2Fjpeg&tenant=line-lead-dev 200 in 315ms
+Regular retrieval found 0 chunk(s)
+No chunks found, trying again with rerank disabled
+Rerank fallback found 6 chunk(s)
+Using provider: openai for model: gpt-4o
+ GET /api/conversations/e5dd6e78-f5f4-4dfb-aad6-417daa59fce4/messages/ba9d6ccb-5437-46d1-91f7-36cd29f5783f 200 in 322ms
+Stream generation took 3415 ms
+ POST /api/conversations/e5dd6e78-f5f4-4dfb-aad6-417daa59fce4/messages 200 in 9794ms
+ ✓ Compiled /sign-in in 169ms
+ ⨯ [Error: Module [project]/app/(main)/o/[slug]/context.tsx [app-ssr] (ecmascript) was instantiated because it was required from module [project]/node_modules/next/dist/esm/build/templates/app-page.js?page=/(main)/o/[slug]/conversations/[id]/page { METADATA_0 => "[project]/app/favicon.ico.mjs { IMAGE => \"[project]/app/favicon.ico (static in ecmascript)\" } [app-rsc] (structured image object, ecmascript, Next.js server component)", MODULE_1 => "[project]/app/layout.tsx [app-rsc] (ecmascript, Next.js server component)", MODULE_2 => "[project]/node_modules/next/dist/client/components/not-found-error.js [app-rsc] (ecmascript, Next.js server component)", MODULE_3 => "[project]/node_modules/next/dist/client/components/forbidden-error.js [app-rsc] (ecmascript, Next.js server component)", MODULE_4 => "[project]/node_modules/next/dist/client/components/unauthorized-error.js [app-rsc] (ecmascript, Next.js server component)", MODULE_5 => "[project]/app/(main)/o/[slug]/layout.tsx [app-rsc] (ecmascript, Next.js server component)", MODULE_6 => "[project]/app/(main)/o/[slug]/conversations/[id]/page.tsx [app-rsc] (ecmascript, Next.js server component)" } [app-rsc] (ecmascript) <locals>, but the module factory is not available. It might have been deleted in an HMR update.] {
+  digest: '2825436921'
+}
+Error: Module [project]/node_modules/next/dist/client/components/error-boundary.js [app-ssr] (ecmascript) was instantiated because it was required from module [project]/node_modules/next/dist/esm/build/templates/app-page.js?page=/(main)/o/[slug]/conversations/[id]/page { METADATA_0 => "[project]/app/favicon.ico.mjs { IMAGE => \"[project]/app/favicon.ico (static in ecmascript)\" } [app-rsc] (structured image object, ecmascript, Next.js server component)", MODULE_1 => "[project]/app/layout.tsx [app-rsc] (ecmascript, Next.js server component)", MODULE_2 => "[project]/node_modules/next/dist/client/components/not-found-error.js [app-rsc] (ecmascript, Next.js server component)", MODULE_3 => "[project]/node_modules/next/dist/client/components/forbidden-error.js [app-rsc] (ecmascript, Next.js server component)", MODULE_4 => "[project]/node_modules/next/dist/client/components/unauthorized-error.js [app-rsc] (ecmascript, Next.js server component)", MODULE_5 => "[project]/app/(main)/o/[slug]/layout.tsx [app-rsc] (ecmascript, Next.js server component)", MODULE_6 => "[project]/app/(main)/o/[slug]/conversations/[id]/page.tsx [app-rsc] (ecmascript, Next.js server component)" } [app-rsc] (ecmascript) <locals>, but the module factory is not available. It might have been deleted in an HMR update.
+    at JSON.parse (<anonymous>)
+ ⨯ Error: Module [project]/node_modules/next/dist/client/components/error-boundary.js [app-ssr] (ecmascript) was instantiated because it was required from module [project]/node_modules/next/dist/esm/build/templates/app-page.js?page=/(main)/o/[slug]/conversations/[id]/page { METADATA_0 => "[project]/app/favicon.ico.mjs { IMAGE => \"[project]/app/favicon.ico (static in ecmascript)\" } [app-rsc] (structured image object, ecmascript, Next.js server component)", MODULE_1 => "[project]/app/layout.tsx [app-rsc] (ecmascript, Next.js server component)", MODULE_2 => "[project]/node_modules/next/dist/client/components/not-found-error.js [app-rsc] (ecmascript, Next.js server component)", MODULE_3 => "[project]/node_modules/next/dist/client/components/forbidden-error.js [app-rsc] (ecmascript, Next.js server component)", MODULE_4 => "[project]/node_modules/next/dist/client/components/unauthorized-error.js [app-rsc] (ecmascript, Next.js server component)", MODULE_5 => "[project]/app/(main)/o/[slug]/layout.tsx [app-rsc] (ecmascript, Next.js server component)", MODULE_6 => "[project]/app/(main)/o/[slug]/conversations/[id]/page.tsx [app-rsc] (ecmascript, Next.js server component)" } [app-rsc] (ecmascript) <locals>, but the module factory is not available. It might have been deleted in an HMR update.
+    at JSON.parse (<anonymous>) {
+  page: '/sign-in'
+}
+ GET /sign-in 200 in 1092ms
+ GET /sign-in 200 in 92ms
+ GET /o/line-lead-dev/conversations/e5dd6e78-f5f4-4dfb-aad6-417daa59fce4 200 in 1216ms
+ GET /o/line-lead-dev/conversations/648ae35e-495a-444c-b22e-50dfc3b61727 200 in 1218ms
+ GET /o/line-lead-dev/conversations/648ae35e-495a-444c-b22e-50dfc3b61727 200 in 1212ms
+ GET /o/line-lead-dev/conversations/e5dd6e78-f5f4-4dfb-aad6-417daa59fce4 200 in 1221ms
+ GET /favicon.ico?favicon.bb7f1b84.ico 200 in 233ms
+ ○ Compiling /_error ...
+ GET /favicon.ico?favicon.bb7f1b84.ico 200 in 225ms
+ ✓ Compiled /_error in 695ms
+ GET /sign-in 500 in 1737ms
+ ✓ Compiled in 137ms
+ GET /o/line-lead-dev/conversations/e5dd6e78-f5f4-4dfb-aad6-417daa59fce4 200 in 390ms
+ GET /o/line-lead-dev/conversations/648ae35e-495a-444c-b22e-50dfc3b61727 200 in 396ms
+ GET /o/line-lead-dev/conversations/e5dd6e78-f5f4-4dfb-aad6-417daa59fce4 200 in 337ms
+ GET /o/line-lead-dev/conversations/648ae35e-495a-444c-b22e-50dfc3b61727 200 in 341ms

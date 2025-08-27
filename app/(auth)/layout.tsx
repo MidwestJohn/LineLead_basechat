@@ -1,25 +1,25 @@
-import { Inter } from "next/font/google";
 import Image from "next/image";
+import Link from "next/link";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export default function Layout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-background">
-      <header className="w-full border-b">
-        <div className="mx-auto flex h-14 max-w-[1140px] items-center px-4">
-          <Image src="/linelead-wordmark.svg" alt="Line Lead" width={140} height={28} className="h-7 w-auto" priority />
+    <div className="min-h-screen bg-white flex flex-col">
+      <header className="border-b border-[#E2E8F0]">
+        <div className="mx-auto max-w-7xl px-6 py-3">
+          <Link href="/" className="inline-flex items-center">
+            <Image src="/line-lead.svg" alt="Line Lead" width={120} height={24} priority />
+          </Link>
         </div>
       </header>
 
-      <main className="mx-auto max-w-[1140px] px-4 py-8">
-        <div className="w-full max-w-[442px] mx-auto flex flex-col items-center justify-center min-h-[calc(100vh-200px)]">
+      <main className="flex-1">
+        <div className="w-full max-w-[442px] mx-auto flex flex-col items-center justify-center min-h-[calc(100vh-200px)] px-6 py-8">
           {children}
         </div>
       </main>
 
-      <footer className="border-t">
-        <div className={`mx-auto max-w-[1140px] px-4 py-6 text-sm text-muted-foreground ${inter.className}`}>
+      <footer className="border-t border-[#E2E8F0]">
+        <div className="mx-auto max-w-7xl px-6 py-4 text-xs text-slate-500">
           © {new Date().getFullYear()} Line Lead. All rights reserved.
         </div>
       </footer>
