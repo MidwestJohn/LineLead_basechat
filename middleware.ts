@@ -1,35 +1,42 @@
-import { getSessionCookie } from "better-auth/cookies";
-import { NextRequest, NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 
-import { createAbsoluteUrl } from "./lib/server/get-origin";
+import { getOrigin } from "@/lib/server/get-origin";
 
-export async function middleware(request: NextRequest) {
+export async function middleware(req: NextRequest) {
   try {
-    const sessionCookie = getSessionCookie(request);
+    // Circuit breaker - can disable middleware without renaming file
+    if (process.env.DISABLE_MIDDLEWARE === "1") {
+      return NextResponse.next();
+    }
+
+    // Guard against missing auth dependencies
+    let sessionCookie;
+    try {
+      const { getSessionCookie } = await import("better-auth/cookies");
+      sessionCookie = getSessionCookie(req);
+    } catch {
+      // If auth system isn't available, allow through
+      return NextResponse.next();
+    }
 
     if (!sessionCookie) {
-      const pathname = request.nextUrl.pathname;
-      if (
-        pathname !== "/sign-in" &&
-        pathname !== "/sign-up" &&
-        pathname !== "/reset" &&
-        pathname !== "/change-password" &&
-        !pathname.startsWith("/check") &&
-        !pathname.startsWith("/api/auth/callback") &&
-        !pathname.startsWith("/api/admin") &&
-        !pathname.startsWith("/healthz") &&
-        !pathname.startsWith("/images")
-      ) {
+      const pathname = req.nextUrl.pathname;
+
+      // Check if path needs authentication
+      if (needsAuth(pathname)) {
         const redirectPath = getUnauthenticatedRedirectPath(pathname);
 
-        // Use robust URL creation
-        const newUrl = createAbsoluteUrl(request, redirectPath);
+        // Use req.nextUrl.clone() when only changing path (more efficient)
+        const newUrl = req.nextUrl.clone();
+        newUrl.pathname = redirectPath;
 
         if (pathname !== "/") {
-          // Create the redirect URL with current search params
-          const redirectTo = createAbsoluteUrl(request, pathname);
-          redirectTo.search = request.nextUrl.search;
-          newUrl.searchParams.set("redirectTo", redirectTo.toString());
+          // Build redirectTo param safely
+          const origin = getOrigin(req);
+          const redirectToUrl = new URL(pathname, origin);
+          redirectToUrl.search = req.nextUrl.search;
+          newUrl.searchParams.set("redirectTo", redirectToUrl.toString());
         }
 
         return NextResponse.redirect(newUrl);
@@ -37,26 +44,28 @@ export async function middleware(request: NextRequest) {
     }
 
     return NextResponse.next();
-  } catch (error) {
-    // Fallback to NextResponse.next() if middleware fails
-    console.error("Middleware error:", error);
+  } catch (err) {
+    // Never surface a crash from middleware - always allow through
+    console.error("middleware error (swallowed):", err);
     return NextResponse.next();
   }
 }
 
-export const config = {
-  matcher: [
-    // Match all paths except:
-    // - Next.js internals (_next)
-    // - Static files (static, favicon.ico, etc.)
-    // - Health check endpoints
-    // - API routes that should bypass auth
-    // - Image assets
-    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|css|js)$|api/healthz|api/auth/callback).*)",
-  ],
-};
+function needsAuth(pathname: string): boolean {
+  return (
+    pathname !== "/sign-in" &&
+    pathname !== "/sign-up" &&
+    pathname !== "/reset" &&
+    pathname !== "/change-password" &&
+    !pathname.startsWith("/check") &&
+    !pathname.startsWith("/api/auth/callback") &&
+    !pathname.startsWith("/api/admin") &&
+    !pathname.startsWith("/healthz") &&
+    !pathname.startsWith("/images")
+  );
+}
 
-function getUnauthenticatedRedirectPath(pathname: string) {
+function getUnauthenticatedRedirectPath(pathname: string): string {
   if (pathname.startsWith("/o")) {
     const slug = pathname.split("/")[2];
     return `/check/${slug}`;
@@ -64,3 +73,10 @@ function getUnauthenticatedRedirectPath(pathname: string) {
     return "/sign-in";
   }
 }
+
+// Keep middleware away from static/assets/api to reduce blast radius
+export const config = {
+  matcher: [
+    "/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|.*\\.(png|jpg|jpeg|gif|svg|webp|ico)|api).*)",
+  ],
+};
