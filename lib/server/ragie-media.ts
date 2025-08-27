@@ -20,12 +20,18 @@ export function extractMediaFromScoredChunks(scoredChunks: ScoredChunk[] = [], t
           (kind === "video" && lower.startsWith("video/")) ||
           (kind === "audio" && lower.startsWith("audio/"));
         if (ok) {
-          const streamUrl = tenantSlug
-            ? `/api/ragie/stream?url=${encodeURIComponent(link.href)}&tenant=${encodeURIComponent(tenantSlug)}`
-            : `/api/ragie/stream?url=${encodeURIComponent(link.href)}`;
+          // For images, use the asset proxy for direct browser rendering
+          // For video/audio, use the stream endpoint for proper range support
+          const url =
+            kind === "image"
+              ? `/api/ragie/asset?href=${encodeURIComponent(link.href)}`
+              : tenantSlug
+                ? `/api/ragie/stream?url=${encodeURIComponent(link.href)}&tenant=${encodeURIComponent(tenantSlug)}`
+                : `/api/ragie/stream?url=${encodeURIComponent(link.href)}`;
+
           media.push({
             kind,
-            url: streamUrl,
+            url,
             mime: link.media_type,
             label: c.document?.title ?? undefined,
           });

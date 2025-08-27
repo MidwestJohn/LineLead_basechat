@@ -1,6 +1,8 @@
 import { getSessionCookie } from "better-auth/cookies";
 import { NextRequest, NextResponse } from "next/server";
 
+import { createAbsoluteUrl } from "./lib/server/get-origin";
+
 export async function middleware(request: NextRequest) {
   try {
     const sessionCookie = getSessionCookie(request);
@@ -20,17 +22,17 @@ export async function middleware(request: NextRequest) {
       ) {
         const redirectPath = getUnauthenticatedRedirectPath(pathname);
 
-        // Use request origin as fallback for BASE_URL
-        const envBase = process.env.BASE_URL || process.env.NEXTAUTH_URL || process.env.NEXT_PUBLIC_APP_URL;
-        const base = envBase ?? `${request.nextUrl.protocol}//${request.nextUrl.host}`;
+        // Use robust URL creation
+        const newUrl = createAbsoluteUrl(request, redirectPath);
 
-        const newUrl = new URL(redirectPath, base);
         if (pathname !== "/") {
-          const redirectTo = new URL(pathname, base);
+          // Create the redirect URL with current search params
+          const redirectTo = createAbsoluteUrl(request, pathname);
           redirectTo.search = request.nextUrl.search;
           newUrl.searchParams.set("redirectTo", redirectTo.toString());
         }
-        return Response.redirect(newUrl);
+
+        return NextResponse.redirect(newUrl);
       }
     }
 
@@ -43,7 +45,15 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next|static|favicon.ico|api/healthz).*)"],
+  matcher: [
+    // Match all paths except:
+    // - Next.js internals (_next)
+    // - Static files (static, favicon.ico, etc.)
+    // - Health check endpoints
+    // - API routes that should bypass auth
+    // - Image assets
+    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|css|js)$|api/healthz|api/auth/callback).*)",
+  ],
 };
 
 function getUnauthenticatedRedirectPath(pathname: string) {

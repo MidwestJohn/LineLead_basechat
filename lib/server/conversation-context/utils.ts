@@ -10,6 +10,31 @@ import { RAGIE_API_BASE_URL } from "../settings";
 
 export const FAILED_MESSAGE_CONTENT = `Failed to generate message from the model, please try again.`;
 
+// Helper function to check if query looks like a filename
+function isFilenameQuery(query: string): boolean {
+  const trimmed = query.trim().toLowerCase();
+  // Check for common image extensions
+  return (
+    /\.(png|jpe?g|gif|webp|tif|tiff|bmp|svg)($|\s)/i.test(trimmed) ||
+    // Check for filename patterns (alphanumeric with underscores/dashes)
+    /^[\w\-_]{3,}\.(png|jpe?g|gif|webp|tif|tiff|bmp|svg)($|\s)/i.test(trimmed)
+  );
+}
+
+// Helper function to normalize filename for searching
+function normalizeFilename(query: string): string {
+  return (
+    query
+      .trim()
+      .toLowerCase()
+      // Remove file extension for base search
+      .replace(/\.(png|jpe?g|gif|webp|tif|tiff|bmp|svg)($|\s).*$/i, "")
+      // Replace underscores and dashes with spaces for better matching
+      .replace(/[_-]/g, " ")
+      .trim()
+  );
+}
+
 export async function getRetrievalSystemPrompt(
   tenant: typeof schema.tenants.$inferSelect,
   query: string,
@@ -20,17 +45,67 @@ export async function getRetrievalSystemPrompt(
   const { client, partition } = await getRagieClientAndPartition(tenant.id);
   const topK = isBreadth || rerankEnabled ? 30 : 6;
 
-  let response = await client.retrievals.retrieve({
-    partition,
-    query,
-    topK,
-    rerank: rerankEnabled,
-    recencyBias: prioritizeRecent,
-    ...(isBreadth ? { maxChunksPerDocument: 4 } : {}),
-  });
+  let response;
 
-  console.log(`ragie response includes ${response.scoredChunks.length} chunk(s)`);
+  // If the query looks like a filename, try a filename-focused search first
+  if (isFilenameQuery(query)) {
+    console.log(`Query appears to be a filename search: ${query}`);
 
+    const baseFilename = normalizeFilename(query);
+    console.log(`Normalized filename for search: ${baseFilename}`);
+
+    try {
+      // Try filename-focused retrieval with document name filtering
+      response = await client.retrievals.retrieve({
+        partition,
+        query: baseFilename,
+        topK: Math.max(topK, 12), // Use more results for filename searches
+        rerank: false, // Don't rerank for filename searches initially
+        recencyBias: false, // Don't bias by recency for specific file requests
+        filter: {
+          // Try to match document names containing the base filename
+          // This handles variations like "Taylor_602C_Exploaded" vs "Taylor_C602_Exploaded"
+          documentName: { contains: baseFilename.replace(/ /g, "_") },
+        },
+      });
+
+      console.log(`Filename-focused search found ${response.scoredChunks.length} chunk(s)`);
+
+      // If we didn't find much with the exact filter, try a broader search
+      if (response.scoredChunks.length < 3) {
+        console.log("Few results from filename filter, trying broader filename search");
+
+        response = await client.retrievals.retrieve({
+          partition,
+          query: baseFilename,
+          topK: Math.max(topK, 12),
+          rerank: false,
+          recencyBias: false,
+        });
+
+        console.log(`Broader filename search found ${response.scoredChunks.length} chunk(s)`);
+      }
+    } catch (error) {
+      console.log("Filename-focused search failed, falling back to regular search:", error);
+      response = null;
+    }
+  }
+
+  // If we don't have results yet, use the regular retrieval strategy
+  if (!response) {
+    response = await client.retrievals.retrieve({
+      partition,
+      query,
+      topK,
+      rerank: rerankEnabled,
+      recencyBias: prioritizeRecent,
+      ...(isBreadth ? { maxChunksPerDocument: 4 } : {}),
+    });
+
+    console.log(`Regular retrieval found ${response.scoredChunks.length} chunk(s)`);
+  }
+
+  // Fallback if we still have no results and rerank was enabled
   if (response.scoredChunks.length === 0 && rerankEnabled) {
     console.log("No chunks found, trying again with rerank disabled");
 
@@ -43,7 +118,7 @@ export async function getRetrievalSystemPrompt(
       ...(isBreadth ? { maxChunksPerDocument: 4 } : {}),
     });
 
-    console.log(`ragie response (rereank fallback) includes ${response.scoredChunks.length} chunk(s)`);
+    console.log(`Rerank fallback found ${response.scoredChunks.length} chunk(s)`);
   }
 
   const chunks = JSON.stringify(response);

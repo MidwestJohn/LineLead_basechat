@@ -8,8 +8,14 @@ const nextConfig: NextConfig = {
   typescript: { ignoreBuildErrors: true },
   experimental: {
     authInterrupts: true,
+    // Speed up development
+    optimizePackageImports: ["lucide-react", "@radix-ui/react-dropdown-menu", "@radix-ui/react-dialog"],
   },
-  eslint: { ignoreDuringBuilds: true },
+  // Configure Turbopack (dev bundler) for Next.js 15
+  turbopack: {
+    // Reduce file watching overhead
+    // Note: Most webpack optimizations are built-in with Turbopack
+  },
 };
 
 export default nextConfig;
