@@ -44,7 +44,7 @@ export default async function SignUpPage({ searchParams }: { searchParams: Promi
 
       <div className="mt-6 text-[16px]">
         <span className="text-[#74747A]">Already using {settings.APP_NAME}?&nbsp;</span>
-        <Link href={signInUrl.toString()} className="text-[#1D1D1F] hover:underline">
+        <Link href={signInUrl.toString()} className="text-[#DC1714] hover:underline">
           Sign in
         </Link>
       </div>

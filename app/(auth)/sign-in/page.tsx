@@ -47,13 +47,13 @@ export default async function SignInPage({ searchParams }: { searchParams: Promi
 
       <SignIn reset={!!reset} redirectTo={redirectTo} />
 
-      <Link href="/reset" className="text-[#D946EF] text-[16px] mt-6 hover:underline">
+      <Link href="/reset" className="text-[#DC1714] text-[16px] mt-6 hover:underline">
         Forgot password?
       </Link>
 
       <div className="mt-6 text-[16px]">
         <span className="text-[#74747A]">Need to create a new organization?&nbsp;</span>
-        <Link href={signUpUrl.toString()} className="text-[#D946EF] hover:underline">
+        <Link href={signUpUrl.toString()} className="text-[#DC1714] hover:underline">
           Sign up
         </Link>
       </div>

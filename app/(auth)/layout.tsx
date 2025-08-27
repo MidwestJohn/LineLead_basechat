@@ -7,7 +7,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
       <header className="border-b border-[#E2E8F0]">
         <div className="mx-auto max-w-7xl px-6 py-3">
           <Link href="/" className="inline-flex items-center">
-            <Image src="/line-lead.svg" alt="Line Lead" width={120} height={24} priority />
+            <Image src="/logo-linelead.svg" alt="Line Lead" width={103} height={29} priority />
           </Link>
         </div>
       </header>
