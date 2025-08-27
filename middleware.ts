@@ -77,6 +77,7 @@ function getUnauthenticatedRedirectPath(pathname: string): string {
 // Keep middleware away from static/assets/api to reduce blast radius
 export const config = {
   matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|.*\\.(png|jpg|jpeg|gif|svg|webp|ico)|api).*)",
+    // Match all paths except static files and API routes
+    "/((?!_next|favicon.ico|api).*)",
   ],
 };
