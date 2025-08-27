@@ -55,7 +55,7 @@ export async function getRetrievalSystemPrompt(
     console.log(`Normalized filename for search: ${baseFilename}`);
 
     try {
-      // Try filename-focused retrieval with document name filtering
+      // Try filename-focused retrieval with document name filtering, prefer images
       response = await client.retrievals.retrieve({
         partition,
         query: baseFilename,
@@ -66,6 +66,10 @@ export async function getRetrievalSystemPrompt(
           // Try to match document names containing the base filename
           // This handles variations like "Taylor_602C_Exploaded" vs "Taylor_C602_Exploaded"
           documentName: { contains: baseFilename.replace(/ /g, "_") },
+          // Prefer image media types for filename searches
+          documentMediaType: {
+            in: ["image/png", "image/jpeg", "image/jpg", "image/webp", "image/gif", "image/tiff", "image/bmp"],
+          },
         },
       });
 
@@ -279,7 +283,16 @@ export async function getRetrievalSystemPrompt(
   });
 
   const company = { name: tenant.name };
-  const media: ChatMedia[] = extractMediaFromScoredChunks(response.scoredChunks, tenant.slug);
+  let media: ChatMedia[] = extractMediaFromScoredChunks(response.scoredChunks, tenant.slug);
+
+  // Filter out videos unless explicitly requested
+  const queryLower = query.toLowerCase();
+  const isVideoQuery = /\b(video|mp4|mov|avi|webm|training|demo)\b/i.test(queryLower);
+
+  if (!isVideoQuery) {
+    // Remove videos unless the user specifically asked for them
+    media = media.filter((m) => m.kind !== "video");
+  }
 
   return {
     content: renderSystemPrompt({ company, chunks }, tenant.systemPrompt),

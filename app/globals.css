@@ -156,6 +156,24 @@ body {
     @apply border-t my-6;
   }
 
+  /* Keep list items tight even when a paragraph is inserted inside li */
+  .prose li > p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  /* Reduce default li spacing */
+  .prose ol > li,
+  .prose ul > li {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+  }
+
+  /* Prevent stray blank paragraphs from creating tall gaps */
+  .prose p:empty {
+    display: none;
+  }
+
   .markdown table {
     @apply table-auto border-collapse w-full my-4;
   }

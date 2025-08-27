@@ -180,3 +180,316 @@ Stream generation took 6145 ms
  GET /o/line-lead-dev/conversations/5235e646-ace6-456e-853c-5bae141ed532 200 in 358ms
  GET /o/line-lead-dev/conversations/648ae35e-495a-444c-b22e-50dfc3b61727 200 in 358ms
  ✓ Compiled in 120ms
+ ✓ Compiled in 1175ms
+ GET /o/line-lead-dev/conversations/5235e646-ace6-456e-853c-5bae141ed532 200 in 388ms
+ GET /o/line-lead-dev/conversations/648ae35e-495a-444c-b22e-50dfc3b61727 200 in 388ms
+ ○ Compiling /sign-in ...
+ ✓ Compiled /sign-in in 764ms
+ HEAD /sign-in 200 in 920ms
+ GET /sign-in 200 in 82ms
+ ✓ Compiled in 93ms
+ ⨯ ./components/chatbot/assistant-message.tsx:8:1
+Module not found: Can't resolve 'remark-gfm'
+[0m [90m  6 |[39m [36mimport[39m [33mMarkdown[39m [36mfrom[39m [32m"react-markdown"[39m[33m;[39m[0m
+[0m [90m  7 |[39m [36mimport[39m rehypeHighlight [36mfrom[39m [32m"rehype-highlight"[39m[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m remarkGfm [36mfrom[39m [32m"remark-gfm"[39m[33m;[39m[0m
+[0m [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[0m
+[0m [90m  9 |[39m [36mimport[39m remarkSqueeze [36mfrom[39m [32m"remark-squeeze-paragraphs"[39m[33m;[39m[0m
+[0m [90m 10 |[39m[0m
+[0m [90m 11 |[39m [36mimport[39m [33mCONNECTOR_MAP[39m [36mfrom[39m [32m"@/lib/connector-map"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./components/chatbot/assistant-message.tsx:8:1
+Module not found: Can't resolve 'remark-gfm'
+[0m [90m  6 |[39m [36mimport[39m [33mMarkdown[39m [36mfrom[39m [32m"react-markdown"[39m[33m;[39m[0m
+[0m [90m  7 |[39m [36mimport[39m rehypeHighlight [36mfrom[39m [32m"rehype-highlight"[39m[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m remarkGfm [36mfrom[39m [32m"remark-gfm"[39m[33m;[39m[0m
+[0m [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[0m
+[0m [90m  9 |[39m [36mimport[39m remarkSqueeze [36mfrom[39m [32m"remark-squeeze-paragraphs"[39m[33m;[39m[0m
+[0m [90m 10 |[39m[0m
+[0m [90m 11 |[39m [36mimport[39m [33mCONNECTOR_MAP[39m [36mfrom[39m [32m"@/lib/connector-map"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./components/chatbot/assistant-message.tsx:8:1
+Module not found: Can't resolve 'remark-gfm'
+[0m [90m  6 |[39m [36mimport[39m [33mMarkdown[39m [36mfrom[39m [32m"react-markdown"[39m[33m;[39m[0m
+[0m [90m  7 |[39m [36mimport[39m rehypeHighlight [36mfrom[39m [32m"rehype-highlight"[39m[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m remarkGfm [36mfrom[39m [32m"remark-gfm"[39m[33m;[39m[0m
+[0m [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[0m
+[0m [90m  9 |[39m [36mimport[39m remarkSqueeze [36mfrom[39m [32m"remark-squeeze-paragraphs"[39m[33m;[39m[0m
+[0m [90m 10 |[39m[0m
+[0m [90m 11 |[39m [36mimport[39m [33mCONNECTOR_MAP[39m [36mfrom[39m [32m"@/lib/connector-map"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./components/chatbot/assistant-message.tsx:8:1
+Module not found: Can't resolve 'remark-gfm'
+[0m [90m  6 |[39m [36mimport[39m [33mMarkdown[39m [36mfrom[39m [32m"react-markdown"[39m[33m;[39m[0m
+[0m [90m  7 |[39m [36mimport[39m rehypeHighlight [36mfrom[39m [32m"rehype-highlight"[39m[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m remarkGfm [36mfrom[39m [32m"remark-gfm"[39m[33m;[39m[0m
+[0m [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[0m
+[0m [90m  9 |[39m [36mimport[39m remarkSqueeze [36mfrom[39m [32m"remark-squeeze-paragraphs"[39m[33m;[39m[0m
+[0m [90m 10 |[39m[0m
+[0m [90m 11 |[39m [36mimport[39m [33mCONNECTOR_MAP[39m [36mfrom[39m [32m"@/lib/connector-map"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./components/chatbot/assistant-message.tsx:8:1
+Module not found: Can't resolve 'remark-gfm'
+[0m [90m  6 |[39m [36mimport[39m [33mMarkdown[39m [36mfrom[39m [32m"react-markdown"[39m[33m;[39m[0m
+[0m [90m  7 |[39m [36mimport[39m rehypeHighlight [36mfrom[39m [32m"rehype-highlight"[39m[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m remarkGfm [36mfrom[39m [32m"remark-gfm"[39m[33m;[39m[0m
+[0m [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[0m
+[0m [90m  9 |[39m [36mimport[39m remarkSqueeze [36mfrom[39m [32m"remark-squeeze-paragraphs"[39m[33m;[39m[0m
+[0m [90m 10 |[39m[0m
+[0m [90m 11 |[39m [36mimport[39m [33mCONNECTOR_MAP[39m [36mfrom[39m [32m"@/lib/connector-map"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./components/chatbot/assistant-message.tsx:8:1
+Module not found: Can't resolve 'remark-gfm'
+[0m [90m  6 |[39m [36mimport[39m [33mMarkdown[39m [36mfrom[39m [32m"react-markdown"[39m[33m;[39m[0m
+[0m [90m  7 |[39m [36mimport[39m rehypeHighlight [36mfrom[39m [32m"rehype-highlight"[39m[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m remarkGfm [36mfrom[39m [32m"remark-gfm"[39m[33m;[39m[0m
+[0m [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[0m
+[0m [90m  9 |[39m [36mimport[39m remarkSqueeze [36mfrom[39m [32m"remark-squeeze-paragraphs"[39m[33m;[39m[0m
+[0m [90m 10 |[39m[0m
+[0m [90m 11 |[39m [36mimport[39m [33mCONNECTOR_MAP[39m [36mfrom[39m [32m"@/lib/connector-map"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./components/chatbot/assistant-message.tsx:8:1
+Module not found: Can't resolve 'remark-gfm'
+[0m [90m  6 |[39m [36mimport[39m [33mMarkdown[39m [36mfrom[39m [32m"react-markdown"[39m[33m;[39m[0m
+[0m [90m  7 |[39m [36mimport[39m rehypeHighlight [36mfrom[39m [32m"rehype-highlight"[39m[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m remarkGfm [36mfrom[39m [32m"remark-gfm"[39m[33m;[39m[0m
+[0m [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[0m
+[0m [90m  9 |[39m [36mimport[39m remarkSqueeze [36mfrom[39m [32m"remark-squeeze-paragraphs"[39m[33m;[39m[0m
+[0m [90m 10 |[39m[0m
+[0m [90m 11 |[39m [36mimport[39m [33mCONNECTOR_MAP[39m [36mfrom[39m [32m"@/lib/connector-map"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./components/chatbot/assistant-message.tsx:8:1
+Module not found: Can't resolve 'remark-gfm'
+[0m [90m  6 |[39m [36mimport[39m [33mMarkdown[39m [36mfrom[39m [32m"react-markdown"[39m[33m;[39m[0m
+[0m [90m  7 |[39m [36mimport[39m rehypeHighlight [36mfrom[39m [32m"rehype-highlight"[39m[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m remarkGfm [36mfrom[39m [32m"remark-gfm"[39m[33m;[39m[0m
+[0m [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[0m
+[0m [90m  9 |[39m [36mimport[39m remarkSqueeze [36mfrom[39m [32m"remark-squeeze-paragraphs"[39m[33m;[39m[0m
+[0m [90m 10 |[39m[0m
+[0m [90m 11 |[39m [36mimport[39m [33mCONNECTOR_MAP[39m [36mfrom[39m [32m"@/lib/connector-map"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./components/chatbot/assistant-message.tsx:8:1
+Module not found: Can't resolve 'remark-gfm'
+[0m [90m  6 |[39m [36mimport[39m [33mMarkdown[39m [36mfrom[39m [32m"react-markdown"[39m[33m;[39m[0m
+[0m [90m  7 |[39m [36mimport[39m rehypeHighlight [36mfrom[39m [32m"rehype-highlight"[39m[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m remarkGfm [36mfrom[39m [32m"remark-gfm"[39m[33m;[39m[0m
+[0m [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[0m
+[0m [90m  9 |[39m [36mimport[39m remarkSqueeze [36mfrom[39m [32m"remark-squeeze-paragraphs"[39m[33m;[39m[0m
+[0m [90m 10 |[39m[0m
+[0m [90m 11 |[39m [36mimport[39m [33mCONNECTOR_MAP[39m [36mfrom[39m [32m"@/lib/connector-map"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./components/chatbot/assistant-message.tsx:8:1
+Module not found: Can't resolve 'remark-gfm'
+[0m [90m  6 |[39m [36mimport[39m [33mMarkdown[39m [36mfrom[39m [32m"react-markdown"[39m[33m;[39m[0m
+[0m [90m  7 |[39m [36mimport[39m rehypeHighlight [36mfrom[39m [32m"rehype-highlight"[39m[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m remarkGfm [36mfrom[39m [32m"remark-gfm"[39m[33m;[39m[0m
+[0m [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[0m
+[0m [90m  9 |[39m [36mimport[39m remarkSqueeze [36mfrom[39m [32m"remark-squeeze-paragraphs"[39m[33m;[39m[0m
+[0m [90m 10 |[39m[0m
+[0m [90m 11 |[39m [36mimport[39m [33mCONNECTOR_MAP[39m [36mfrom[39m [32m"@/lib/connector-map"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./components/chatbot/assistant-message.tsx:8:1
+Module not found: Can't resolve 'remark-gfm'
+[0m [90m  6 |[39m [36mimport[39m [33mMarkdown[39m [36mfrom[39m [32m"react-markdown"[39m[33m;[39m[0m
+[0m [90m  7 |[39m [36mimport[39m rehypeHighlight [36mfrom[39m [32m"rehype-highlight"[39m[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m remarkGfm [36mfrom[39m [32m"remark-gfm"[39m[33m;[39m[0m
+[0m [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[0m
+[0m [90m  9 |[39m [36mimport[39m remarkSqueeze [36mfrom[39m [32m"remark-squeeze-paragraphs"[39m[33m;[39m[0m
+[0m [90m 10 |[39m[0m
+[0m [90m 11 |[39m [36mimport[39m [33mCONNECTOR_MAP[39m [36mfrom[39m [32m"@/lib/connector-map"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./components/chatbot/assistant-message.tsx:8:1
+Module not found: Can't resolve 'remark-gfm'
+[0m [90m  6 |[39m [36mimport[39m [33mMarkdown[39m [36mfrom[39m [32m"react-markdown"[39m[33m;[39m[0m
+[0m [90m  7 |[39m [36mimport[39m rehypeHighlight [36mfrom[39m [32m"rehype-highlight"[39m[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m remarkGfm [36mfrom[39m [32m"remark-gfm"[39m[33m;[39m[0m
+[0m [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[0m
+[0m [90m  9 |[39m [36mimport[39m remarkSqueeze [36mfrom[39m [32m"remark-squeeze-paragraphs"[39m[33m;[39m[0m
+[0m [90m 10 |[39m[0m
+[0m [90m 11 |[39m [36mimport[39m [33mCONNECTOR_MAP[39m [36mfrom[39m [32m"@/lib/connector-map"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ✓ Compiled in 251ms
+ ⨯ ./components/chatbot/assistant-message.tsx:8:1
+Module not found: Can't resolve 'remark-gfm'
+[0m [90m  6 |[39m [36mimport[39m [33mMarkdown[39m [36mfrom[39m [32m"react-markdown"[39m[33m;[39m[0m
+[0m [90m  7 |[39m [36mimport[39m rehypeHighlight [36mfrom[39m [32m"rehype-highlight"[39m[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m remarkGfm [36mfrom[39m [32m"remark-gfm"[39m[33m;[39m[0m
+[0m [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[0m
+[0m [90m  9 |[39m [36mimport[39m remarkSqueeze [36mfrom[39m [32m"remark-squeeze-paragraphs"[39m[33m;[39m[0m
+[0m [90m 10 |[39m[0m
+[0m [90m 11 |[39m [36mimport[39m [33mCONNECTOR_MAP[39m [36mfrom[39m [32m"@/lib/connector-map"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./components/chatbot/assistant-message.tsx:8:1
+Module not found: Can't resolve 'remark-gfm'
+[0m [90m  6 |[39m [36mimport[39m [33mMarkdown[39m [36mfrom[39m [32m"react-markdown"[39m[33m;[39m[0m
+[0m [90m  7 |[39m [36mimport[39m rehypeHighlight [36mfrom[39m [32m"rehype-highlight"[39m[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m remarkGfm [36mfrom[39m [32m"remark-gfm"[39m[33m;[39m[0m
+[0m [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[0m
+[0m [90m  9 |[39m [36mimport[39m remarkSqueeze [36mfrom[39m [32m"remark-squeeze-paragraphs"[39m[33m;[39m[0m
+[0m [90m 10 |[39m[0m
+[0m [90m 11 |[39m [36mimport[39m [33mCONNECTOR_MAP[39m [36mfrom[39m [32m"@/lib/connector-map"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./components/chatbot/assistant-message.tsx:8:1
+Module not found: Can't resolve 'remark-gfm'
+[0m [90m  6 |[39m [36mimport[39m [33mMarkdown[39m [36mfrom[39m [32m"react-markdown"[39m[33m;[39m[0m
+[0m [90m  7 |[39m [36mimport[39m rehypeHighlight [36mfrom[39m [32m"rehype-highlight"[39m[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m remarkGfm [36mfrom[39m [32m"remark-gfm"[39m[33m;[39m[0m
+[0m [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[0m
+[0m [90m  9 |[39m [36mimport[39m remarkSqueeze [36mfrom[39m [32m"remark-squeeze-paragraphs"[39m[33m;[39m[0m
+[0m [90m 10 |[39m[0m
+[0m [90m 11 |[39m [36mimport[39m [33mCONNECTOR_MAP[39m [36mfrom[39m [32m"@/lib/connector-map"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./components/chatbot/assistant-message.tsx:8:1
+Module not found: Can't resolve 'remark-gfm'
+[0m [90m  6 |[39m [36mimport[39m [33mMarkdown[39m [36mfrom[39m [32m"react-markdown"[39m[33m;[39m[0m
+[0m [90m  7 |[39m [36mimport[39m rehypeHighlight [36mfrom[39m [32m"rehype-highlight"[39m[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m remarkGfm [36mfrom[39m [32m"remark-gfm"[39m[33m;[39m[0m
+[0m [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[0m
+[0m [90m  9 |[39m [36mimport[39m remarkSqueeze [36mfrom[39m [32m"remark-squeeze-paragraphs"[39m[33m;[39m[0m
+[0m [90m 10 |[39m[0m
+[0m [90m 11 |[39m [36mimport[39m [33mCONNECTOR_MAP[39m [36mfrom[39m [32m"@/lib/connector-map"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./components/chatbot/assistant-message.tsx:8:1
+Module not found: Can't resolve 'remark-gfm'
+[0m [90m  6 |[39m [36mimport[39m [33mMarkdown[39m [36mfrom[39m [32m"react-markdown"[39m[33m;[39m[0m
+[0m [90m  7 |[39m [36mimport[39m rehypeHighlight [36mfrom[39m [32m"rehype-highlight"[39m[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m remarkGfm [36mfrom[39m [32m"remark-gfm"[39m[33m;[39m[0m
+[0m [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[0m
+[0m [90m  9 |[39m [36mimport[39m remarkSqueeze [36mfrom[39m [32m"remark-squeeze-paragraphs"[39m[33m;[39m[0m
+[0m [90m 10 |[39m[0m
+[0m [90m 11 |[39m [36mimport[39m [33mCONNECTOR_MAP[39m [36mfrom[39m [32m"@/lib/connector-map"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./components/chatbot/assistant-message.tsx:8:1
+Module not found: Can't resolve 'remark-gfm'
+[0m [90m  6 |[39m [36mimport[39m [33mMarkdown[39m [36mfrom[39m [32m"react-markdown"[39m[33m;[39m[0m
+[0m [90m  7 |[39m [36mimport[39m rehypeHighlight [36mfrom[39m [32m"rehype-highlight"[39m[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m remarkGfm [36mfrom[39m [32m"remark-gfm"[39m[33m;[39m[0m
+[0m [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[0m
+[0m [90m  9 |[39m [36mimport[39m remarkSqueeze [36mfrom[39m [32m"remark-squeeze-paragraphs"[39m[33m;[39m[0m
+[0m [90m 10 |[39m[0m
+[0m [90m 11 |[39m [36mimport[39m [33mCONNECTOR_MAP[39m [36mfrom[39m [32m"@/lib/connector-map"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./components/chatbot/assistant-message.tsx:8:1
+Module not found: Can't resolve 'remark-gfm'
+[0m [90m  6 |[39m [36mimport[39m [33mMarkdown[39m [36mfrom[39m [32m"react-markdown"[39m[33m;[39m[0m
+[0m [90m  7 |[39m [36mimport[39m rehypeHighlight [36mfrom[39m [32m"rehype-highlight"[39m[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m remarkGfm [36mfrom[39m [32m"remark-gfm"[39m[33m;[39m[0m
+[0m [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[0m
+[0m [90m  9 |[39m [36mimport[39m remarkSqueeze [36mfrom[39m [32m"remark-squeeze-paragraphs"[39m[33m;[39m[0m
+[0m [90m 10 |[39m[0m
+[0m [90m 11 |[39m [36mimport[39m [33mCONNECTOR_MAP[39m [36mfrom[39m [32m"@/lib/connector-map"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./components/chatbot/assistant-message.tsx:8:1
+Module not found: Can't resolve 'remark-gfm'
+[0m [90m  6 |[39m [36mimport[39m [33mMarkdown[39m [36mfrom[39m [32m"react-markdown"[39m[33m;[39m[0m
+[0m [90m  7 |[39m [36mimport[39m rehypeHighlight [36mfrom[39m [32m"rehype-highlight"[39m[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m remarkGfm [36mfrom[39m [32m"remark-gfm"[39m[33m;[39m[0m
+[0m [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[0m
+[0m [90m  9 |[39m [36mimport[39m remarkSqueeze [36mfrom[39m [32m"remark-squeeze-paragraphs"[39m[33m;[39m[0m
+[0m [90m 10 |[39m[0m
+[0m [90m 11 |[39m [36mimport[39m [33mCONNECTOR_MAP[39m [36mfrom[39m [32m"@/lib/connector-map"[39m[33m;[39m[0m
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ✓ Compiled in 273ms
+ ✓ Compiled /o/[slug]/conversations/[id] in 33ms
+ GET /sign-in 200 in 555ms
+ GET /o/line-lead-dev/conversations/648ae35e-495a-444c-b22e-50dfc3b61727 200 in 1278ms

@@ -5,6 +5,8 @@ import Image from "next/image";
 import { useState } from "react";
 import Markdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
+import remarkGfm from "remark-gfm";
+import remarkSqueeze from "remark-squeeze-paragraphs";
 
 import CONNECTOR_MAP from "@/lib/connector-map";
 import { IMAGE_FILE_TYPES, VIDEO_FILE_TYPES, AUDIO_FILE_TYPES } from "@/lib/file-utils";
@@ -145,10 +147,23 @@ export default function AssistantMessage({
         {/* 2) Short summary text */}
         {content?.length ? (
           <Markdown
-            className="markdown mt-[10px] whitespace-pre-wrap leading-relaxed"
+            className="prose prose-zinc max-w-none leading-relaxed prose-p:my-2 prose-ol:my-2 prose-ul:my-2 prose-li:my-0 mt-[10px]"
+            remarkPlugins={[remarkGfm, remarkSqueeze]}
             rehypePlugins={[rehypeHighlight]}
             components={{
               pre: CodeBlock,
+              p: (props) => <p {...props} className="my-2" />,
+              img: ({ src = "", alt = "" }) => (
+                <Image
+                  src={src}
+                  alt={alt}
+                  width={900}
+                  height={600}
+                  className="my-3 rounded-xl border bg-white"
+                  sizes="(max-width: 768px) 100vw, 768px"
+                  unoptimized // Since we're using proxy URLs
+                />
+              ),
             }}
           >
             {content}
